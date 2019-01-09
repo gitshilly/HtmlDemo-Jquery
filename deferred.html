@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery Deferred 实现ES6 Promise</title>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function runAsync(){
+		var def = $.Deferred();
+		//做些异步操作
+		setTimeout(function(){
+			console.log('exec done');
+			def.resolve('any data');
+		},2000);
+		return def.promise();  //在这调用，返回对象就没有resolve方法了，也就无法从外面改变他的状态了。
+	}
+	// runAsync().then(function(data){
+	// 	console.log(data);
+	// });
+	var fnRunAsync = runAsync();
+	fnRunAsync.then(function(data){
+		console.log(data);
+	});
+	fnRunAsync.resolve('finished outside');
+	//$.when 功能等同于 ES6的 Promise
+	$.when(runAsync1(),runAsync2(),...).then(data1,data2,...){
+		console.log('全部执行完成');
+		console.log(data1,data2,...);
+	});
+	//ajax done,fail,always == ES6 Deferred对象的done、fail、always一致。
+	$.ajax({
+		url: '/path/to/file',
+		type: 'default GET (Other values: POST)',
+		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+		data: {param1: 'value1'},
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+	
+	
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js array pop,push,shift,unshift,splice</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var oldArr = [1,2,3];
+	oldArr.push(4,[5,6]);  //output: [1,2,3,4,[5,6]]
+
+	//pop 取数组最后一个值
+	console.log(oldArr.pop());  //[5,6]  
+	console.log(oldArr);//output [1, 2, 3, 4]
+
+	var oldArr1 = [1,2];
+	//unshift
+	console.log(oldArr1.unshift(3)); //3
+	console.log(oldArr1); //[3, 1, 2]
+	//shift
+	console.log(oldArr1.shift());//3
+
+	var oldArr3=[1,2]; 
+
+	//splice(start,deleteCnt,args) 
+	console.log(oldArr3.splice()); //[]
+	console.log(oldArr3);//[1,2]
+	console.log(oldArr3.splice(""));//[1,2]
+	console.log(oldArr3); //[]
+
+	var oldArr5=[3,1,5,7,17]; //初始数组 
+	function mySort(left,right){ 
+		if(left<right){ 
+			return 1;}//如果左边元素小于右边元素则交换两数 
+		else{ 
+			return -1;}//如果左边元素大于等于右边元素不做交换 
+	} 
+
+	//按照偶数在前奇数在后排序 
+	var oldArr6=[3,6,7,18];//初始数组 
+	function mySort2(left,right){ 
+		 if(left%2==0)return -1;//如果左边元素为偶数则不交换 
+		 if(right%2==0)return 1; //如果右边元素为偶数则交换 
+		 return 0; //不交换 
+	} 
+
+	//concat
+	var oldArr4=[1,2]; 
+	oldArr4.concat(3,4);
+	oldArr4.concat(3,4,[5,6]);//[1,2,3,4,5,6]
+	oldArr4.concat(3,[4,[5,6]]);//[1,2,3,4,[5,6]]
+
+	//slice
+	var oldArr7=[1,2,3,4]; 
+	oldArr7.slice(0);//[1,2,3,4] 
+	oldArr7.slice(0,2);//[1,2] 
+</script>
+</html>

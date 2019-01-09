@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta content="text/html;charset=gb2312">
+	<title>余数</title>
+</head>
+<body>
+秀法先生、董事会秘书杨靖女士、保荐代表人包建祥先生。 
+投资者关系
+活动主要内
+容介绍 
+ 
+1. 上海新阳定增拟用于投资新昇半导体的资金仍有 2 亿元闲置存在银行，
+这 2 亿元资金是不是以注册资本的形式投入新昇半导体？ 
+答：如果公司对大硅片公司继续增加投资，定增资金将会以注册资本金
+的形式投入新昇半导体。 
+
+2. 上海新阳定增拟用于投资新昇半导体的资金仍有 2 亿元闲置存在银行，
+这 2 亿元资金是不是以注册资本的形式投入新昇半导体？问王董 
+答：如果公司对大硅片公司继续增加投资，定增资金将会以注册资本金
+的形式投入新昇半导体。
+
+
+3. 公司每次投资项目的可行性报告是否有详细说明公告？ 
+答：目前公司每次的投资项目的可行性报告都有独立公告。 
+
+4. 现在行业间的并购都比较频繁，你们今年有没有兼并收购计划？ 
+答：公司会从发展和战略角度去考虑和进行公司的并购计划，不放弃任
+何符合公司发展战略与公司业务相关的任何投资与并购机会。谢谢！
+
+5. 今年以来，原材料都迎来涨价潮，对公司会有什么影响？ 
+答：原材料的涨价对公司老产品的影响较大，公司致力于不断开发新产
+品，以抵御对公司整体运营业绩的影响，从而保持经营业绩的不断提升。
+
+
+ 
+
+</body>
+<script type="text/javascript">
+var _imgUrl = "https://stwebapp001sh.blob.core.chinacloudapi.cn/news/images/20170329170740743200200.jpg";
+var x= _imgUrl.substr(0,_imgUrl.indexOf('200200.'));
+//var y = _imgUrl
+	console.log(_getRemainder('123456789'));
+	//递归显示金额，
+	function _getRemainder(num){
+		//return (Math.round(num*100)/100).toLocaleString();
+		//return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,' );
+		var _result=num;
+		var lastnum = "";
+		if(num.indexOf(',')!=-1){
+			lastnum = num.substr(num.indexOf(','),num.length-1);
+			num = num.substr(0,num.indexOf(','));
+		}
+		var x = num % 1000;
+		if(num.length>3){
+			var _tmpNum = num.substr(0,num.indexOf(x)) + ','+ x + lastnum;
+			return _getRemainder(_tmpNum);
+		}else{
+			return _result+".00";
+		}
+	}
+</script>
+</html>

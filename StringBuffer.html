@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试stringbuffer的强大</title>
+	<script type="text/javascript" src="http://gpys.emoney.cn/js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+	function StringBuffer(){
+		this._strings_ = new Array();
+	}
+	StringBuffer.prototype.append=function(str){
+		this._strings_.push(str);
+	};
+	StringBuffer.prototype.toString= function(){
+		return this._strings_.join("");
+	};
+
+	//StringBuffer
+
+	console.time("append耗时");
+	var oBuffer = new StringBuffer();
+	var d1 = new Date();
+	for (var i = 0; i < 1000000; i++) {
+		oBuffer.append("text");
+	}
+	var sResult = oBuffer.toString();
+	d2 = new Date();
+	document.write((d2.getTime()-d1.getTime())+"\n");
+	console.timeEnd("append耗时");
+
+
+	console.time("push耗时");
+	var aBuffer = new Array();
+	for (var i = 0,len=1000000; i < len; i++) {
+		aBuffer.push("text");
+	};
+	var sRe = aBuffer.join("");
+	console.timeEnd("push耗时");
+	//+=
+	console.time("+=耗时");
+	d1 = new Date();
+	var str ="";
+	for (var i = 0; i < 1000000; i++) {
+		str +="text";
+	}
+	d2 = new Date();
+	console.timeEnd("+=耗时");
+
+</script>
+</html>

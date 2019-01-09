@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>push和arr[i]=arr1[j]比速度</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var array1 = new Array();
+	var d1 = new Date();
+	for (var i = 0; i < 100000; i++) {
+		array1.push(i);
+	};
+	var d2 = new Date();
+	document.write((d2.getTime()-d1.getTime())+"\n");
+
+	var array1 = new Array();
+	d1 = new Date();
+	for (var i = 0; i < 100000; i++) {
+		array1[i] = i;//据说这样比push快
+	};
+	d2 = new Date();
+	document.write((d2.getTime()-d1.getTime())+"\n");
+</script>
+</html>

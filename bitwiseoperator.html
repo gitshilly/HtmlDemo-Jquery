@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>位运算符</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//重温整数
+	var iNum = 18;
+	alert(iNum.toString(2));   //outputs "10010"
+	iNum = -18;
+	//alert(iNum.toString(2))		//outputs "-10010"
+
+	//位运算符NOT
+	//转32位二进制计算
+	var iNum1 = 25;		//25 equal to 0000000000000000000000000000011001
+	var iNum2 = ~iNum1;	//convert to  1111111111111111111111111111100110
+	//alert(iNum2);		//-26
+
+	//equals
+	iNum3 = -iNum1-1;
+	//alert(iNum3);
+
+	//位运算符AND
+	//转32位二进制计算
+	var iResult = 25 & 3;  
+	//alert(iResult);  //1
+	var iResult1 = 25 | 3;
+	//alert(iResult1);  //27
+
+	//XOR
+	//转32位二进制计算
+	var iResult1 = 25 ^ 3;
+	//alert(iResult1);	//26
+
+	//左移运算
+	var iOld = 2; //二进制 10
+	var iNew = iOld << 5;  //10 00000五位 => 1000000   =>output 64  
+	//右移   有符号>>  无符号 >>>
+	var iOld1 = 64;
+	var iNew1 = iOld1 >> 5;   //output 2
+	var iNew2 = iOld1 >>> 5;   //output 2
+	//alert(iNew1);
+	//alert(iNew2);
+
+	//等性运算符
+	var iNum4;    null == undefined   true
+	if(iNum4==undefined||iNum4==0){
+		alert('null==undefined');
+	}
+
+</script>
+</html>

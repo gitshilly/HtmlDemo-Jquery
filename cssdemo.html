@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		body{border:1px solid red;}
+		/*dt margin为0 ，不需要重置*/
+		/*dt标签的reset只是白白浪费，增加页面渲染负荷；padding属性值仅极少标签(ol, ul)有，其他标签无需浪费渲染重新设置。*/
+		dl,dd{margin: 0;}
+		dl,dt,dd{margin: 0;}
+
+		ul,ol{margin-left:0; padding-left: 40px; }
+		ul li,ol li{}
+		.zxx_ul_image{overflow:hidden; zoom:1;}
+		.zxx_ul_image li{float: left;height: 150px;line-height: 150px;}
+		.zxx_ul_image li img{vertical-align:middle;}
+		.zxx_ul_image:after{clear:both;}
+
+		.zxx_main_con{min-height: 580px;padding: 0 20px 20px;}
+		.single_line{line-height: 30px;border: 1px dashed #cccccc;padding-left: 5px;}
+		.mulit_line{line-height: 150px;border: 1px dashed #cccccc;padding-left: 5px;font-size: 0;}
+		.mulit_line span {display: inline-block;line-height: 1.4em;vertical-align: middle;}
+
+		.out{display:inline-block; background:#a0b3d6; margin-top:20px;}
+		.in1{display:block; height:20px;}
+		.in2{display:block; line-height:20px;}
+
+		.body{
+		width:900px;    
+		background-color:#556677; 
+		margin:0 auto;   //为了居中
+		height:auto;
+		}
+	    .test{
+		border: 5px solid #126121;
+		float: left;
+		height: 200px;
+		margin-left: 18px;
+		margin-top: 40px;
+		width: 150px;
+		}
+		.test{vertical-align:-10%;}
+	</style>
+</head>
+<body>
+	<div class="test">
+		<img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" />123545
+	</div>
+	 <div class="body">
+			<div class="test">111</div>		
+			<div class="test ">222</div>	
+			<div class=" test ">333</div>
+			<div class=" test ">444</div>
+			<div class=" test ">555</div>
+		</div>
+	<dl>
+		<dt>测试dt</dt>
+		<dd>测试dd</dd>
+	</dl>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<ol>
+		<li>ol>li1</li>
+		<li>ol>li2</li>
+		<li>ol>li3</li>
+		<li>ol>li4</li>
+	</ol>
+	<span class="out">
+		<span class="in1">height:20px;</span>
+	</span>
+	<span class="out">
+		<span class="in2">line-height:20px;</span>
+	</span>
+	<ul class="zxx_ul_image">
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" /></li>
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" /></li>
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg" /></li>
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg" /></li>
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm5.jpg" /></li>
+    <li><img src="http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg" /></li>  
+</ul>
+	<div class="zxx_main_con">
+			<strong class="f11">单行文字</strong>
+            <p class="single_line mt10 mb20">
+            	这是高度为30像素的单行文字
+            </p>
+            <strong class="f11">多行文字</strong>
+            <p class="mulit_line mt10">
+            	<span style="font-size:12px;">这里是高度为150像素的标签内的多行文字，文字大小为12像素。<br>这里是第二行，用来测试多行的显示效果。</span><i class="vm dib">&nbsp;</i>
+            </p>
+            <p class="mulit_line mt10">
+            	<span style="font-size:20px;">这里是高度为150像素的标签内的多行文字，文字大小为20像素。<br>这里是第二行，用来测试多行的显示效果。</span><i class="vm dib">&nbsp;</i>
+            </p>
+        </div>
+</body>
+</html>

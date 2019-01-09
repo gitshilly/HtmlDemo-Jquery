@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>执行顺序</title>
+</head>
+<body>
+	<pre style="white-space: pre-wrap; word-wrap: break-word; box-sizing: border-box; margin-top: 0px; margin-bottom: 10.5px; font-family: &quot;Source Code Pro&quot;, monospace; padding: 10px; font-size: 14px; line-height: 1.45; word-break: break-all; color: rgb(51, 51, 51); background-color: rgba(128, 128, 128, 0.0470588); border: 1px solid rgba(128, 128, 128, 0.0745098); border-radius: 0px;">修改js和css文件
+
+通过对js,css文件内容进行hash运算，生成一个文件的唯一hash字符串(如果文件修改则hash号会发生变化)
+
+替换html中的js,css文件名，生成一个带版本号的文件名</pre>
+<p style="margin-top: 0px; margin-bottom: 1.1em; padding: 0px; box-sizing: border-box; font-family: &quot;microsoft yahei&quot;; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);">
+    方案
+</p>
+<p style="margin-top: 0px; margin-bottom: 1.1em; padding: 0px; box-sizing: border-box; font-family: &quot;microsoft yahei&quot;; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);">
+    现在网上的方案都是生成一个新的dist目录，里面包含了要发布的html,js,css等文件。但是在实际的公司的项目中，会有情况不能生成新的HTML进行发布，需要在原来的HTML文件上进行js ,css版本的替换. 这里分享下我在实际项目中通过改动插件然后在原目录结构下进行版本的控制方案。
+</p>
+<p style="margin-top: 0px; margin-bottom: 1.1em; padding: 0px; box-sizing: border-box; font-family: &quot;microsoft yahei&quot;; font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);">
+    原html文件代码
+</p>
+<p>
+    <br/>
+</p>
+</body>
+<script type="text/javascript">
+	// console.log(a);
+	// var a = 20;
+
+	// var a;
+	// console.log(a);
+	// a = 20
+
+
+	// function test (){
+	// 	function foo(){
+	// 		return  'hello';
+	// 	}
+	// 	var foo;  
+	// 	console.log(foo);
+
+	// 	var bar;
+	// 	foo ='Hello';
+	// 	bar = function(){
+	// 		return 'world';
+	// 	}
+	// }
+	function test1(){
+		console.log(foo);
+		console.log(bar);
+		var foo = 'Hello';
+		console.log(foo);
+
+		var bar = function(){
+			return 'world';
+		}
+		function foo(){
+			return 'hello';
+		}
+	}
+	test1();
+
+	//实际执行顺序
+	function test(){
+		function foo(){
+			return 'hello';
+		}
+		var bar; //undefined
+		var foo;//同名跳过，不会覆盖
+		console.log(foo); //function
+		console.log(bar); //undefined
+		foo = 'Hello';
+		console.log(foo); //Hello
+		bar = function(){
+			return 'world';
+		}
+
+	}
+	test();
+
+</script>
+</html>

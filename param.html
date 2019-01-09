@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.param 序列化</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var myObject = {
+  		a: {
+	    	one: 1, 
+	    	two: 2, 
+	    	three: 3
+  		}, 
+  		b: [1,2,3]
+	};
+	var recursiveEncoded = $.param(myObject);
+	var recursiveDecoded = decodeURIComponent($.param(myObject));
+	console.log(recursiveDecoded);
+	console.log(recursiveEncoded);
+	var shallowEncoded = $.param(myObject, true);
+	var shallowDecoded = decodeURIComponent(shallowEncoded);
+	console.log(shallowEncoded);
+	console.log(shallowDecoded);
+</script>
+</html>

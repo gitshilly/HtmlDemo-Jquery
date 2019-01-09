@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery 幻灯效果 上下切换</title>
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script> -->
+
+  <script type="text/javascript" src="http://static.emoney.cn/live/Scripts/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+  /** css Reset star like yahoo **/
+body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, p, th, td {
+ padding: 0;
+ margin: 0;
+}
+table {
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+fieldset, img {
+ border: 0;
+}
+ul,li{list-style:none;}
+h1, h2, h3, h4, h5, h6 {
+ font-weight: normal;
+ font-size: 100%;
+}
+#wrapper {
+ border:1px #ccc solid;
+ position:relative;
+ overflow:hidden;
+ width:573px;
+ height:257px;
+ font-size:14px;
+ font-family:Tahoma, Geneva, sans-serif;
+}
+#number {
+ width:88px;
+ position:absolute;
+ left:10px;
+ bottom:10px;
+}
+#number li {
+ padding-left:6px;
+ float:left;
+ text-indent:-9999px;
+ width:16px;
+ height:16px;
+ overflow:hidden;
+ background-image:url(../images/number1.png);
+ background-repeat:no-repeat;
+}
+#buttom_0 {
+ background-position:0 0;
+}
+#buttom_1 {
+ background-position:-22px 0;
+}
+#buttom_2 {
+ background-position:-44px 0;
+}
+#buttom_3 {
+ background-position:-66px 0;
+}
+#buttom_0.selected {
+ background-position:0 -16px;
+}
+#buttom_1.selected {
+ background-position:-22px -16px;
+}
+#buttom_2.selected {
+ background-position:-44px -16px;
+}
+#buttom_3.selected {
+ background-position:-66px -16px;
+}
+/* */
+.content_right{float:left;}
+.content_right .ad {
+ margin-bottom:10px;
+ 
+ 
+ width:573px;
+ height:257px;
+ overflow:hidden;
+ position:relative;
+}
+.content_right .slider,.content_right .num{
+ position:absolute;
+}
+.content_right .slider li{
+}
+.content_right .slider img{
+ width:573px;
+ height:257px;
+ display:block;
+}
+.content_right .num{
+ right:5px;
+ bottom:5px;
+}
+.content_right .num li{
+ float: left;
+ color: #069;
+ text-align: center;
+ line-height: 16px;
+ width: 16px;
+ height: 16px;
+ font-family: Arial;
+ font-size: 12px;
+ cursor: pointer;
+ overflow: hidden;
+ margin: 3px 1px;
+ border: 1px solid #069;
+ background-color: #fff;
+}
+.content_right .num li.on{
+ color: #fff;
+ line-height: 16px;
+ width: 16px;
+ height: 16px;
+ font-size: 14px;
+ margin: 3px 1px;
+ border: 1px solid #069;
+ background-color: #069;
+ font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+/**
+* author jackluo
+*/
+/*首页广告效果*/
+(function($){
+  
+  $.fn.webjoy = function(option){
+    void 0 === option && (option = {});
+    var defaults = {
+          slideshowSpeed:2000,
+          animationSpeed:1000,
+          direction:'top',
+        },
+        opt = $.extend({},defaults,option);
+    var a = $(this),
+        slideshowSpeed = 2000,
+        animationSpeed =1000,
+          c = a.find(opt.selector ? opt.selector: ".num > li")
+          s = a.find(opt.slider ? opt.slider: ".slider");
+
+    slider = function(){
+      var  len  = c.length,
+           index=0,  
+
+           adTimer; 
+     opt.direction == 'top'?index = len-1:index=0;
+      c.mouseover(function(){//鼠标移进效果
+          index = c.index(this); //
+          void opt.direction == 'top'?topshowImg(index):bottomshowImg(index); //
+      }).eq(index).mouseover();//手动设置事件  
+      //滑动停止动画,滑出开发动画
+      a.hover(function(){
+        clearInterval(adTimer);
+      },function(){
+        setInterval(function(){
+          if(opt.direction == 'top'){
+              topshowImg(index);
+              index--;
+              if(index<0){index=len-1;}
+
+          }else{
+            bottomshowImg(index);
+              index++;
+              if(index==len){index=0;}
+          }
+        },opt.slideshowSpeed)
+      }).trigger("mouseleave");
+    };
+　　//向上切换
+    topshowImg = function(index){
+      var adHeight = a.height();
+      s.stop(true,false).animate({top : -adHeight*index},opt.animationSpeed);
+      c.removeClass("on").eq(index).addClass("on");
+    }
+//向下切换
+    bottomshowImg = function(index){
+      var adHeight = a.height();
+      s.stop(true,false).animate({bottom: -adHeight*index},opt.animationSpeed);
+      c.removeClass("on").eq(index).addClass("on");
+    }
+    slider();
+  }
+})(jQuery);
+
+$(function(){
+  $('.content_right .ad').webjoy({slideshowSpeed:2000,animationSpeed:1000,direction:'top'});
+});
+ 
+</script>
+</head>
+<body>
+<div class="content_right">
+  <div class="ad" >
+    <ul class="slider" >
+    <li ><a href="#"><img src="http://pic002.cnblogs.com/images/2011/334763/2011120516434445.jpg" width="573" height="257" /></a></li>
+    <li ><a href="#"><img src="http://pic002.cnblogs.com/images/2011/334763/2011120516440935.jpg" width="573" height="257" /></a></li>
+    <li ><a href="#"><img src="http://pic002.cnblogs.com/images/2011/334763/2011120516443665.jpg" width="573" height="257" /></a></li>
+    <li ><a href="#"><img src="http://pic002.cnblogs.com/images/2011/334763/2011120516445513.jpg" width="573" height="257" /></a></li>
+    </ul>
+    <ul class="num" >
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+<style>
+a.a{color:red;}
+</style>
+<script>
+$(document).ready(function(){
+    $("#proName li a").click(function(e){
+        e.preventDefault();
+        $("#proName li a").removeClass("a");
+        $(this).addClass("a");
+    });
+});
+
+function getComm(str) {
+    console.log(str)
+}
+</script>
+</head>
+<body>
+<ul id="proName">
+<li><a href="javascript:void(0);" onclick="getComm('test')" class="">test</a></li>
+<li><a href="javascript:void(0);" onclick="getComm('test1')" class="">test</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <input id="btn" type="button" value="执行队列" />
+    <div id="n1" style="width: 200px; height: 100px; border: 1px solid #ccc;" ></div>
+    <div id="n2" style="width: 200px; height: 100px; border: 1px solid #ccc;" ></div>
+    <div id="n3" style="width: 200px; height: 100px; border: 1px solid #ccc;" ></div>
+</body>
+<script type="text/javascript">
+    var $divs = $("div");
+    $("#btn").click(function(){
+        if( this.value == "开始执行" ){
+            // 为每个div元素设置两个自定义动画
+            $divs.animate( {width: 400, height: 200}, 1000 )
+            .queue( function(){
+                $("#btn").val( "继续执行" );
+            } )
+            .animate( {width: 200, height: 100 }, 1000 );
+        }else{
+            $divs.dequeue( );
+            $("#btn").val( "开始执行" );
+        }
+});
+</script>
+</html>

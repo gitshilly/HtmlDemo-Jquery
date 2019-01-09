@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动导航</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+	body{background-color:#000;}
+	#nav {border-left:2px solid green; margin-left: 3px;}
+	#nav li {box-shadow: 2px 2px 1px #888; height: 25px; line-height: 25px;}
+	.active{ color:red;}
+	#item1 {color: red;}
+	#item2{color: orange;}
+	#item3 {color: yellow;}
+	#item4{color: green;}
+	#item5{color:blue;}
+
+.navList{position:fixed;right:0px;top:240px}
+.navList li{position:relative;height:48px;width:48px;margin-top:5px;}
+.navList a{width:100%;height:100%;background:url('css/images/w60.png') repeat;position:absolute;padding-top:1px;right:0px;display:block}
+.navList a:hover{background-color: #FFF;}
+.navList .arrow{background:#2EA8D2;}
+.navList .arrow:hover{background:#49B9EA;}
+	.navList .icon{position:absolute;width:20px;height:20px;background:url('css/images/iconList.png') no-repeat;top:50%;margin-top:-10px;right:14px;}
+.navList .icon_check{background-position:0 0;}
+.navList .icon_bag{background-position:-20px 0;}
+.navList .icon_download{background-position:-40px 0;}
+.navList .icon_en{background-position:-60px 0;}
+.navList .icon_blog{background-position:-80px 0;}
+.navList .icon_arrow{background-position:-100px 0;}
+.navList .content_area{height:48px;line-height:48px;padding-left:10px;padding-right:48px;display:none}
+	</style>
+</head>
+<body>
+	<div id="nav" style="position:fixed; right:0; top:5px; background:#FFF;">
+		<ul>
+			<li><a href="#item1">One</a></li>
+			<li><a href="#item2">Two</a></li>
+			<li><a href="#item3">Three</a></li>
+			<li><a href="#item4">Four</a></li>
+			<li><a href="#item5">Five</a></li>
+		</ul>
+	</div>
+	<ul class="navList" align="right">
+			<li><a id="check_rcion" style="width: 100%;"><div class="content_area r" style="width: 254px; display: none;">
+				<input type="text" class="my_iput" style="width:120px" placeholder="请输入关键字"><input type="button" class="my_button" value="搜索"></div><div class="icon icon_check "></div></a>
+			</li>
+			<li><a id="bag_rcion" style="width: 100%;"><div class="content_area r" style="width: 110px; display: none;">我的行程</div><div class="icon icon_bag"></div></a></li>
+			<li><a id="download_rcion" style="width: 100%;"><div class="content_area r" style="width: 134px; display: none;">下载旅游指南</div><div class="icon icon_download"></div></a></li>
+			<li><a id="en_rcion" style="width: 100%;"><div class="content_area r" style="width: 96px; display: none;">英文站</div><div class="icon icon_en"></div></a></li>
+			<li><a id="blog_rcion" style="width: 100%;"><div class="content_area r" style="width: 110px; display: none;">关注我们</div><div class="icon icon_blog"></div></a></li>
+			<li><a id="arrow_rcion" class="arrow"><div class="icon icon_arrow"></div></a></li>
+		</ul>
+	<div id="container">
+		<div id="item1" class="item">
+			<div>
+				<ul>
+					<li>xx</li>
+					<li>bb</li>
+					<li>cc</li>
+					<li>dd</li>
+					<li>ee</li>
+					<li>xx</li>
+					<li>bb</li>
+					<li>cc</li>
+					<li>dd</li>
+					<li>ee</li>
+					<li>xx</li>
+					<li>bb</li>
+					<li>cc</li>
+					<li>dd</li>
+					<li>ee</li>
+				</ul>
+			</div>
+		</div>
+		<div id="item2" class="item">
+			<div style="width:50px;">
+				从前有坐山,山上有坐庙,庙里有个老和尚在讲故事,讲的什么啊,从前有座山,山里有座庙,庙里有个盆,盆里有个锅,锅里有个碗,碗里有个匙,匙里有个花生仁,我吃了,你谗了,我的故事讲完了.
+			</div>
+		</div>
+		<div id="item3" class="item">
+			<div>
+				<fieldset>
+					<legend>我的测试</legend>
+				<div style="height:500px;">
+					ddd
+				</div>
+				</fieldset>
+			</div>
+		</div>
+		<div id="item4" class="item">
+			<div class="review_L_details">
+                    <h3>                      欧美小涨小跌多“周星” A股低开低收觅支撑</h3>
+             
+                        <p class="RL_details_time">      
+                                                        <span>2017/01/16 09:18:01</span>
+                        </p>
+
+                        <p class="RL_details_title">
+                        
+上周五，美股惯性高开后依旧是高位窄幅整理，三大股指的情形也各不相同：道指微调0.03%，全周下挫0.39%；标普收高0.18%，周调幅也缩减至0.10%；纳指上涨0.48%，周升幅则提高到0.96%
+                        </p>
+                    <div class="RL_details_content">
+                        <p>上周五，美股惯性高开后依旧是高位窄幅整理，三大股指的情形也各不相同：道指微调0.03%，全周下挫0.39%；标普收高0.18%，周调幅也缩减至0.10%；纳指上涨0.48%，周升幅则提高到0.96%。其他主要股指也基本保持上攻姿态，英还一路碎步上行且屡创历史新高，法、德也已持续6周飘红，只是G7成员向上拓展空间的力度已经减弱，而中期指标又长时间处于超买状态，且上周多半收成较暧昧的十字星，显示不确定因素普遍加大，中短期反复或已近在眼前。
+                        </p>
+                        <p><br></p>
+                        <p>随着美元进一步走低，国际期市总体表现也有所转强。美元指数近日冲高回落，3周连阴也是最近20月内最差的，既表明目前仍较疲弱，也预示随时都可能反弹。虽然原油下跌速度加快，粮棉品种依旧涨跌不一，可黄金、白银却连收3阳，铜近3周的升速还不断加快，铝、锌、铅也毫不逊色，证明最近期市在逐渐变强，只是适当休整仍是不可或缺。</p>
+                        <p><br></p>
+                        <p>美国近日的经济数据依旧利多。例如，经季调后的去年11月消费者信贷增长，11月批发库存也好于预期，全美独立企业联合会信心指数还升至2004年以来的最高，近几个月的职位空缺数据又表明劳动力市场似已接近全面就业，上周首次申请失业救济人数增加仍处于低水平，去年12月的批发通胀、生产者价格指数双双攀升，而12月的销售收入增长却不如预期。就技术状况而言，纳指近日独挑频创新高的重任，道指、标普则震荡整理形成长下影阴、阳十字星，看似下档支撑更为强劲，实则是空方已占据上风，反映出下探意愿增强的事实，近期累计涨幅又相当可观，而中期指标超买已久往往又具有两面性，5周线还一度被刺穿，且三大股指上周波幅再缩9%、32%、37%，略多于去年平均的五六成，摆动不足的问题越来越严重，预示本周波动区间将大幅拓宽，5周线或19880点、2264点、5500点也会面临考验，其得失就显得更加重要。</p>
+                        <p><br></p>
+                        <p>未能延续企稳回升，A股上周小幅低开后却无功而返，5周线下滑仍构成阻压，沪深大盘分别收跌1.32%、2.73%，中期局势变得不太乐观，但这却可能是为了完成最后一跌，也就是探寻强力支撑、夯实中期底部的需要。因为上周成交额增加16%至19848亿，日均额却减少7%，每天之间的量变也比较小，表明市场仍相对比较平稳，多空间的分歧并没有扩大，只是沪市量能占比先升后降，导致权重股难以保持强势，大盘也就失去了应有的重心；沪深单位股指量能上周一增一减，以日计则减少14%、33%，即下行缺乏量能支持，空方脆弱的后防就容易被摧毁，但多方发动反击前还需做些必要的准备。虽说上周波幅仅为去年平均水平的65%、76%，可沪深两市却拓宽了大约一成、九成，深市还创半年多来的新低，万点整数大关也被短暂刺穿，既说明目前处境艰难，也预示反弹即将到来。借助波形判断，短调使形态变得较完整，是否再创新低已无关大局，止跌进而反弹就是大势所趋，攻克5周线或3120点、10170点，就有望重新走强。
+                        </p>
+                        <p><br></p>
+                        <p>综上，国际期市或将转入短期休整，“周星”遍布的欧美股市也是变数丛生，先止跌再弹升就是A股的最佳选择。本周仍可能惯性低开并创新低，观望气氛渐浓也将抑制量能释放，回升力度容易受限，但权重股或打响反攻第一枪。
+                    	</p>
+                    </div>
+                </div>
+		</div>
+		<div id="item5" class="item">
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+			<p>item5:xxxxx</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.navList').find("a").mouseenter(function(event) {
+			/* Act on the event */
+			$(this).css({width:'auto'}).find(".content_area").show();
+		}).mouseleave(function(event) {
+			/* Act on the event */
+			$(this).css({width:'100%'}).find(".content_area").hide();
+		});
+		$(window).scroll(function(event) {
+			/* Act on the event */
+			var top = $(document).scrollTop();
+			var menu = $('#nav');
+			var item = $('#container').find('.item');
+			var currId ="";
+			item.each(function(index, el) {
+				var m = $(this);
+				var itemTop = m.offset().top;
+				if(top>itemTop-100){
+					currId ='#'+m.attr("id");
+				}else{
+					return false;
+				}
+			});
+			var currLink = menu.find(".active");
+			if(currId&&currLink.attr("href")!=currId){
+				currLink.removeClass("active");
+				menu.find('a[href="'+currId+'"]').addClass("active");
+			}
+		});
+	});
+	//匿名函数
+	(function(xx){alert(xx);})(11);
+
+</script>
+</html>

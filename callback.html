@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异步编程callback的缺点</title>
+</head>
+<script type="text/javascript">
+function fn1(f){
+  alert(1);
+  f();
+};
+function fn2(f){
+     alert(2);
+     f();
+};
+function fn3(){
+    alert(3);
+    
+};
+
+fn1(function(){ fn2(fn3); });
+</script>
+<body>
+	
+</body>
+</html>

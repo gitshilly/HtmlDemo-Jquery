@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery.extend()和$.fn.extend()的区别</title>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript">
+		(function($){
+			$.extend({
+				speak:function(){
+					alert('how are you !');
+				}
+			});
+			$.fn.extend({
+	               speak:function(){
+	                   alert("div speak : how are you!");
+	               }
+	        });
+		})(jQuery);
+		
+	</script>
+	 <script type="text/javascript">
+        $(document).ready(function(){
+            $.speak();
+            $("div").speak();
+        })
+    </script>
+</head>
+<body>
+	
+</body>
+</html>

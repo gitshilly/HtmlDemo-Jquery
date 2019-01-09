@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前增量后增量的区别</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//先计算
+	var iNum = 10;
+	--iNum;
+	alert(iNum);     //output 9
+	alert(--iNum);	//output 8
+	alert(iNum);	//output 8
+	var iNum1 =2,iNum2 =20;
+	var iNum3 = --iNum1+ ++iNum;   //1+21
+	var iNum4 = iNum1+iNum2;	//1+21
+
+	iNum = 10;
+	iNum--;
+	alert(iNum);     //output 9
+	alert(iNum--);	//output 8
+	alert(iNum);	//output 8
+
+	var iNum1 =2,iNum2 =20;
+	var iNum3 = iNum1-- + iNum++ ;   //2+20
+	var iNum4 = iNum1+iNum2;         //1+21
+
+</script>
+</html>

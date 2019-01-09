@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-float</title>
+	<style type="text/css">
+		.abtn{float:left;  color:#000000; font-size:12px;  border:none; padding-left:3px; text-decoration:none;background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat left top;}
+		.abtn cite{ display: block;line-height:26px; padding:0 13px 0 10px; background:url(http://www.zhangxinxu.com/study/image/sina_gray_btn.png) no-repeat right top;}
+		.shadow { padding:20px; color: #aaaaaa;}
+		.shadow .text { position: absolute; margin:-1px 0 0 -1px; color: #333;}
+		.rel {position: relative;}
+		.abs {position: absolute;left:0;top:0;}
+
+	</style>
+</head>
+<body>
+	<dl>
+	    <dt class="p-img">
+	        <a href="##"><img width="130" height="130" src="http://img10.360buyimg.com/n3/834/11752677-6197-4ffa-b4c0-e66d02640bad.jpg" /></a>
+	        <div style="background-color:red;color:#FFF;margin:-28px 0 0 80px;"><div class="new-price">￥999.00</div></div>
+	        <!-- <div class="p-price" style="position:absolute; bottom:10px; right:50px;">￥999.00</div> -->
+	    </dt>
+	</dl>
+	<div class="rel">
+		<div class="abs">inline-block </div>
+	</div>
+	<div style="margin:200px;height:200px; border:1px solid red;">
+		<!--left:0;top:0 不等同于不设置left,top； 不设置会对父元素margin值敏感，设置不会 -->
+		<div style="position:absolute; background:blue;">d1214654ee2ee1r2<br>ddeed</div>
+	</div>
+	<div style="width:200px; height:120px; background:#f0f3f9; margin:40px;">
+		<img src="http://image.zhangxinxu.com/image/blog/zxx_90_0824.jpg" style="position:absolute;" />
+	</div>
+	<a href="#" class="abtn"><cite>floatdddeeeeeeeee</cite></a>
+	<div style="clear:both;"></div>
+	<div class="shadow">
+		<div class="text">margin+absolute实现阴影</div>
+		margin+absolute实现阴影
+	</div>
+</body>
+</html>

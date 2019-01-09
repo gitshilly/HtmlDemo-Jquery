@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>语句</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//迭代语句
+	// do{
+	// }while();
+	// while(){
+	// }
+
+	var iNum = 0;
+	outermost:
+	for (var i = 0; i < 10; i++) {
+		for (var j = 0; j < 10; j ++) {
+			if(i==5 && j==5){
+				break outermost;
+			}
+			iNum++;
+		};
+	}
+	alert(iNum);
+
+
+	
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据与类数据区别，[]，arguments,queryselectorall,getelementsbytagname</title>
+</head>
+<body>
+	<div></div>
+</body>
+<script type="text/javascript">
+	a= []
+	b=(function(){return arguments})()
+	c=document.querySelectorAll('div')
+	d=document.getElementsByTagName('div')
+	set = [a,b,c,d]
+	for( i in set) console.log(set[i].constructor.prototype)
+	//output
+   	// [Symbol(Symbol.unscopables): Object]
+  	// Object {}
+  	// NodeList {item: function}
+  	// HTMLCollection {item: function, namedItem: function}
+
+	// 大部分人都知道，querySelectorAll 返回的是一个 Static Node List，而 getElementsBy 系列的返回的是一个 Live Node List。
+	// 看看下面这个经典的例子 [5]：
+	// Demo 1
+	var ul = document.querySelectorAll('ul')[0],
+	    lis = ul.querySelectorAll("li");
+	for(var i = 0; i < lis.length ; i++){
+	    ul.appendChild(document.createElement("li"));
+	}
+
+	// Demo 2
+	var ul = document.getElementsByTagName('ul')[0], 
+	    lis = ul.getElementsByTagName("li"); 
+	for(var i = 0; i < lis.length ; i++){
+	    ul.appendChild(document.createElement("li")); 
+	}
+	// 因为 Demo 2 中的 lis 是一个动态的 Node List， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。
+	// 而 Demo 1 中的 lis 是一个静态的 Node List，是一个 li 集合的快照，
+	//对文档的任何操作都不会对其产生影响。
+
+	// getElement* 的实时性体现在返回集合的时候，我们知道getElementsBy*和querySelectorAll返回的都是一个节点集合，类似于数组，两种方法的区别就在于这个集合会不会自动更新。
+	//初始时DOMain中没有<img>元素
+	var x = document.querySelectorAll('img')
+	var y = document.getElementsByTagName('img')
+	document.body.appendChild(new Image())
+	x.length // 0
+	y.length // 1
+
+	// 	普遍观点是getXXX的性能比querySelectorAll要好很多，对于处理简单选择器的情况下非常建议fallback到它们（比如zepto就是这么做的）。
+
+	// 另外，说一个很逗的“优点”吧
+	// getElementById可以接受一个不合法的id，比如
+	<div id="my.name"></div>
+	//用
+	document.querySelectorAll('#my.name');
+	//毫无疑问是query不到它的，但是用
+	document.getElementById('my.name');
+	//却可以
+
+</script>
+</html>

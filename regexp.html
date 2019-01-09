@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="common/common.js"></script>
+</head>
+<body>
+	<textarea id="txtarea" rols="10">xxxxx</textarea><input type="button" value="Test" onclick="test();">
+	<div id="result"></div>
+</body>
+<script type="text/javascript">
+function test()
+{
+	var text = $('#txtarea').val();//"hel/"lo/" word";
+	var quote = /"([^"]*)"/g;
+
+	console.log(text);
+	text.replace(quote,'“$1”');
+	console.log(text);
+}
+//
+	var sToMatch = "#123456789";
+	var reNumbers = /#(?:\d+)/
+	// alert(isValidDate('01/12/2016'));
+	// alert("["+(" this is a test ").trim()+"]");
+
+	function testReg(){
+	 	var txt = $('#txtarea').val();
+	 	var regexp = /<a.*>([^\>]+?)<\/a>/gi;
+	 	var stringbuffer = new StringBuffer();
+	 	//exec
+	 	var regarray=null;
+	 	while(( regarray = RegExp.exec(txt))!=null){
+  			stringbuffer.append(regarray[1]);
+	 	}
+	 	$('#result').HTML(stringbuffer.toString());
+	 	//match
+	 	regarray = txt.match(regexp);
+	 	if(regarray!=null&&regarray!=undefined&&regarray.length>0)
+	 	{
+	 	for (var i = 0; i < regarray.length; i++) {
+	 		  stringbuffer.append(regarray[i]);
+	 	};
+	 	$('#result').html(stringbuffer.toString());
+	 	}
+	}
+</script>
+</html>

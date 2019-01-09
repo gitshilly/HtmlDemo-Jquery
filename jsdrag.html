@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag</title>
+</head>
+<body>
+<p>Try dragging the text from the textbox to the red square. Drop target events fire now.</p>
+	<form action="">
+		<p>Try dragging the image</p>
+		<p>
+			<a href="http://www.emoney.cn/">益盟官网</a>
+		</p>
+		<p>
+			<input type="text" value="Drop this text" ondragstart="handleDragDropEvent(event)">
+		<!-- <input type="text" ondragenter="handleDragDropEvent(event)" ondragover="handleDragDropEvent(event)" ondragover="handleDragDropEvent(event)" ondragleave="handleDragDropEvent(event)" ondrop="handleDragDropEvent(event)"> -->
+			<div style="background-color:red;height:100px;width:100px;" 
+				ondragenter="handleDragDropEvent(event)" 
+				ondragover="handleDragDropEvent(event)" 
+				ondrop="handleDragDropEvent(event)">
+			</div>
+		</p>
+		<p>
+			<textarea name="" id="txt1" cols="25" rows="10" readonly=""></textarea>
+		</p>
+	</form>
+
+</body>
+<script type="text/javascript">
+	function handleDragDropEvent(oEvent){
+		var oTextbox =document.getElementById('txt1');
+		oTextbox.value += oEvent.type+'\n';
+
+		switch(oEvent.type){
+			case "dragstart":
+				oEvent.dataTransfer.effectAllowed = "move";
+				break;
+			case "dragenter":
+				oEvent.dataTransfer.dropEffect = "move";
+				oEvent.returnValue = false;
+				break;
+
+			case "dragover":
+				oEvent.returnValue = false;
+				break;
+
+			case "drop":
+				oEvent.returnValue=false;
+				oEvent.srcElement.innerHTML = oEvent.dataTransfer.getData("text");
+				break;
+		}
+	}
+</script>
+</html>

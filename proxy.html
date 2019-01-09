@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.proxy</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<div id="test">Click Here!</div>
+</body>
+<script type="text/javascript">
+	var obj = {
+		name:'objname',
+		test:function(){
+			alert(this.name);
+		}
+	}
+	//$('#test').click(obj.test);   //undefined
+
+	//obj 设置函数的作用域，test obj.test()方法
+	$("#test").click( $.proxy( obj, "test" ) );   //objname
+	//强制设置函数的作用域，让this指向obj而不是#test对象。
+	$('#test').click($.proxy(obj.test,obj));    //objname
+</script>
+</html>

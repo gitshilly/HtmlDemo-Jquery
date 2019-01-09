@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onerror</title>
+</head>
+<body onload="nonExistenFunction()">
+	
+</body>
+<script type="text/javascript">
+	window.onerror = function(sMessage,sUrl,sLine){
+		alert('An error occurred:\n'+sMessage+"\nUrl:"+sUrl+"\nsLine:"+sLine);
+	}
+	alertc();
+</script>
+</html>

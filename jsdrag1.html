@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js dragDrop 方法</title>
+</head>
+<body>
+	<p>Try dragging the red square into the textobx</p>
+	<p>
+		<div style="background-color:red; height:100px; width:100px;" onmousemove="handleMouseMove(event)" ondragstart ="handleDragDropEvent(event)">
+			This is a red square.
+		</div>
+	</p>
+	<form action="">
+		<p><input type="text" value=""></p>
+	</form>
+</body>
+<script type="text/javascript">
+	function handleMouseMove(oEvent){
+		if(oEvent.button==1){
+			oEvent.srcElement.dragDrop();
+		}
+	}
+	function handleDragDropEvent(oEvent){
+		oEvent.dataTransfer.setData('text','This is a red square.');
+	}
+</script>
+</html>

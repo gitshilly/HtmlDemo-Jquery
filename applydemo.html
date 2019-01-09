@@ -1,0 +1,78 @@
+ <!DOCTYPE HTML>
+<html>
+<head>
+	<title>javascript Apply/call</title>
+	<script type="text/javascript">
+		function add(a,b)  
+		{  
+			alert(a+b);  
+		}  
+		function sub(a,b)  
+		{  
+			alert(a-b);  
+		}  
+		add.call(sub, 1,3);
+
+		function Animal(){  
+		    this.name = "Animal";  
+		    this.showName = function(){  
+		        alert(this.name);  
+		    }  
+		} 
+		function Cat(){  
+		    this.name = "Cat";  
+		}  
+		var animal = new Animal();  
+		var cat = new Cat();  
+		  
+		//通过call或apply方法，将原本属于Animal对象的showName()方法交给对象cat来使用了。  
+		//输入结果为"Cat"  
+		//animal.showName.call(cat,"xx");  
+		animal.showName.apply(cat,[]);  //方法被覆盖，返回undefined
+
+		var arr1=[1,3,4];
+		var arr2=[3,4,5];
+		Array.prototype.push.apply(arr1,arr2);
+		console.log(arr1);
+
+		//实现继承
+		function Animal(name){  
+		    this.name = name;  
+		    this.showName = function(){  
+		        alert(this.name);  
+		    }  
+		} 
+		function Cat(name){
+			Animal.call(this,name);
+		};
+		var cat = new Cat("White cat");
+		cat.showName();
+
+		//多重继承
+		function class10(){
+			this.showSub=function(a,b){
+				alert(a-b);
+			};
+		}
+		function class11(){
+			this.showAdd = function(a,b){
+				alert(a+b);
+			}
+		}
+		function class22(){
+			class10.call(this);
+			class11.call(this);
+		}
+		var class1 = new class22();
+		class1.showSub(1,2);
+		class1.showAdd(1,2);
+
+		function getMax(arr){
+    		return Math.max.apply(null,arr);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
